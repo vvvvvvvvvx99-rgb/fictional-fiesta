@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大学生游戏习惯调查问卷</title>
+<style>
+  *{box-sizing:border-box}
+  body{
+    margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;
+    background:#f5f7fb;color:#222;line-height:1.6;
+  }
+  .wrap{max-width:820px;margin:40px auto;padding:0 18px}
+  .card{background:#fff;border-radius:18px;padding:30px;box-shadow:0 8px 30px rgba(0,0,0,.07);margin-bottom:18px}
+  h1{margin:0 0 8px;font-size:28px}
+  .intro{color:#666;margin-bottom:24px}
+  .progress{height:8px;background:#e9edf3;border-radius:99px;overflow:hidden;margin:14px 0 28px}
+  .bar{height:100%;width:0;background:#4f7cff;transition:.25s}
+  .section-title{font-size:20px;margin:0 0 18px}
+  .question{margin:24px 0}
+  .q-title{font-weight:650;margin-bottom:10px}
+  .required{color:#e5484d}
+  label.option{
+    display:block;padding:10px 12px;border-radius:10px;margin:6px 0;
+    cursor:pointer;background:#fafbfc;border:1px solid #edf0f4;
+  }
+  label.option:hover{background:#f1f5ff}
+  input[type=radio],input[type=checkbox]{margin-right:9px}
+  input[type=text],textarea{
+    width:100%;padding:11px 12px;border:1px solid #dfe3ea;border-radius:10px;
+    font:inherit;outline:none;
+  }
+  textarea{min-height:100px;resize:vertical}
+  .buttons{display:flex;gap:10px;justify-content:flex-end;margin-top:26px}
+  button{
+    border:0;border-radius:10px;padding:11px 18px;font-size:15px;cursor:pointer
+  }
+  .primary{background:#4f7cff;color:#fff}.secondary{background:#eef1f6;color:#333}
+  .error{color:#d33;margin-top:8px;font-size:14px}
+  .success{text-align:center;padding:45px 20px}
+  .success h2{font-size:26px;margin-bottom:8px}
+  .hidden{display:none}
+  .note{font-size:13px;color:#888}
+  @media(max-width:600px){.wrap{margin:15px auto}.card{padding:20px}h1{font-size:23px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div id="formPage">
+    <div class="card">
+      <h1>大学生游戏习惯调查问卷</h1>
+      <div class="intro">本问卷用于了解大学生电子游戏使用情况及相关态度，采用匿名方式填写。预计用时约 3～5 分钟。</div>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <div class="note" id="progressText">已完成 0%</div>
+    </div>
+
+    <form id="survey">
+      <div class="card">
+        <h2 class="section-title">一、基本信息</h2>
+
+        <div class="question" data-required>
+          <div class="q-title">1. 您目前所在的年级是？ <span class="required">*</span></div>
+          <label class="option"><input type="radio" name="q1" value="大一">大一</label>
+          <label class="option"><input type="radio" name="q1" value="大二">大二</label>
+          <label class="option"><input type="radio" name="q1" value="大三">大三</label>
+          <label class="option"><input type="radio" name="q1" value="大四">大四</label>
+          <label class="option"><input type="radio" name="q1" value="研究生及以上">研究生及以上</label>
+          <label class="option"><input type="radio" name="q1" value="其他">其他</label>
+        </div>
+
+        <div class="question" data-required>
+          <div class="q-title">2. 您的性别是？ <span class="required">*</span></div>
+          <label class="option"><input type="radio" name="q2" value="男">男</label>
+          <label class="option"><input type="radio" name="q2" value="女">女</label>
+          <label class="option"><input type="radio" name="q2" value="不愿透露">不愿透露</label>
+          <label class="option"><input type="radio" name="q2" value="其他">其他</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">二、游戏参与情况</h2>
+
+        <div class="question" data-required>
+          <div class="q-title">3. 您平时玩电子游戏吗？ <span class="required">*</span></div>
+          <label class="option"><input type="radio" name="q3" value="经常玩">经常玩</label>
+          <label class="option"><input type="radio" name="q3" value="偶尔玩">偶尔玩</label>
+          <label class="option"><input type="radio" name="q3" value="很少玩">很少玩</label>
+          <label class="option"><input type="radio" name="q3" value="基本不玩">基本不玩</label>
+        </div>
+
+        <div class="question" data-required>
+          <div class="q-title">4. 您通常使用什么设备玩游戏？（可多选） <span class="required">*</span></div>
+          <label class="option"><input type="checkbox" name="q4" value="手机">手机</label>
+          <label class="option"><input type="checkbox" name="q4" value="电脑">电脑</label>
+          <label class="option"><input type="checkbox" name="q4" value="游戏主机">游戏主机</label>
+          <label class="option"><input type="checkbox" name="q4" value="平板电脑">平板电脑</label>
+          <label class="option"><input type="checkbox" name="q4" value="其他">其他</label>
+        </div>
+
+        <div class="question" data-required>
+          <div class="q-title">5. 您平均每天玩游戏多长时间？ <span class="required">*</span></div>
+          <label class="option"><input type="radio" name="q5" value="30分钟以内">30分钟以内</label>
+          <label class="option"><input type="radio" name="q5" value="30分钟～1小时">30分钟～1小时</label>
+          <label class="option"><input type="radio" name="q5" value="1～2小时">1～2小时</label>
+          <label class="option"><input type="radio" name="q5" value="2～4小时">2～4小时</label>
+          <label class="option"><input type="radio" name="q5" value="4小时以上">4小时以上</label>
+        </div>
+
+        <div class="question" data-required>
+          <div class="q-title">6. 您通常喜欢玩哪些类型的游戏？（可多选） <span class="required">*</span></div>
+          <label class="option"><input type="checkbox" name="q6" value="MOBA">MOBA</label>
+          <label class="option"><input type="checkbox" name="q6" value="FPS/射击">FPS / 射击</label>
+          <label class="option"><input type="checkbox" name="q6" value="RPG">RPG / 角色扮演</label>
+          <label class="option"><input type="checkbox" name="q6" value="竞技类">竞技类</label>
+          <label class="option"><input type="checkbox" name="q6" value="策略类">策略类</label>
+          <label class="option"><input type="checkbox" name="q6" value="模拟经营">模拟经营</label>
+          <label class="option"><input type="checkbox" name="q6" value="音乐/节奏类">音乐 / 节奏类</label>
+          <label class="option"><input type="checkbox" name="q6" value="解谜类">解谜类</label>
+          <label class="option"><input type="checkbox" name="q6" value="开放世界">开放世界</label>
+          <label class="option"><input type="checkbox" name="q6" value="休闲类">休闲类</label>
+          <label class="option"><input type="checkbox" name="q6" value="其他">其他</label>
+        </div>
+
+        <div class="question" data-required>
+          <div class="q-title">7. 您通常在什么时间玩游戏？（可多选） <span class="required">*</span></div>
+          <label class="option"><input type="checkbox" name="q7" value="早晨">早晨</label>
+          <label class="option"><input type="checkbox" name="q7" value="午休时间">午休时间</label>
+          <label class="option"><input type="checkbox" name="q7" value="下午">下午</label>
+          <label class="option"><input type="checkbox" name="q7" value="晚上">晚上</label>
+          <label class="option"><input type="checkbox" name="q7" value="深夜">深夜</label>
+          <label class="option"><input type="checkbox" name="q7" value="周末或节假日">周末或节假日</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">三、游戏与学习生活</h2>
+
+        <div class="question" data-required>
+          <div class="q-title">8. 您认为游戏对自己的学习效率有什么影响？ <span class="required">*</span></div>
+          <label class="option"><input type="radio" name="q8" value="明显提高">明显提高</label>
+          <label class="option"><input type="radio" name="q8" value="有一定提高">有一定提高</label>
+          <label class="option"><input type="radio" name="q8" value="基本没有影响">基本没有影响</label>
+          <label class="option"><input type="radio" name="q8" value="有一定降低">有一定降低</label>
+          <label class="option"><input type="radio" name="q8" value="明显降低">明显降低</label>
+        </div>
+
+        <div class="question" data-required>
+          <div class="q-title">9. 您是否有过因为玩游戏而推迟学习任务的情况？ <span class="required">*</span></div>
+          <label class="option"><input type="radio" name="q9" value="经常有">经常有</label>
+          <label class="option"><input type="radio" name="q9" value="偶尔有">偶尔有</label>
+          <label class="option"><input type="radio" name="q9" value="很少有">很少有</label>
+          <label class="option"><input type="radio" name="q9" value="从来没有">从来没有</label>
+        </div>
+
+        <div class="question" data-required>
+          <div class="q-title">10. 您是否会主动限制自己的游戏时间？ <span class="required">*</span></div>
+          <label class="option"><input type="radio" name="q10" value="经常会">经常会</label>
+          <label class="option"><input type="radio" name="q10" value="偶尔会">偶尔会</label>
+          <label class="option"><input type="radio" name="q10" value="很少会">很少会</label>
+          <label class="option"><input type="radio" name="q10" value="从来不会">从来不会</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">四、游戏动机与消费</h2>
+
+        <div class="question" data-required>
+          <div class="q-title">11. 您玩游戏的主要原因是什么？（可多选） <span class="required">*</span></div>
+          <label class="option"><input type="checkbox" name="q11" value="放松娱乐">放松娱乐</label>
+          <label class="option"><input type="checkbox" name="q11" value="缓解压力">缓解压力</label>
+          <label class="option"><input type="checkbox" name="q11" value="与朋友社交">与朋友社交</label>
+          <label class="option"><input type="checkbox" name="q11" value="获得成就感">获得成就感</label>
+          <label class="option"><input type="checkbox" name="q11" value="喜欢剧情/世界观">喜欢剧情 / 世界观</label>
+          <label class="option"><input type="checkbox" name="q11" value="喜欢竞技和挑战">喜欢竞技和挑战</label>
+          <label class="option"><input type="checkbox" name="q11" value="消磨时间">消磨时间</label>
+          <label class="option"><input type="checkbox" name="q11" value="对游戏本身感兴趣">对游戏本身感兴趣</label>
+          <label class="option"><input type="checkbox" name="q11" value="其他">其他</label>
+        </div>
+
+        <div class="question" data-required>
+          <div class="q-title">12. 您是否在电子游戏中进行过付费？ <span class="required">*</span></div>
+          <label class="option"><input type="radio" name="q12" value="经常付费">经常付费</label>
+          <label class="option"><input type="radio" name="q12" value="偶尔付费">偶尔付费</label>
+          <label class="option"><input type="radio" name="q12" value="很少付费">很少付费</label>
+          <label class="option"><input type="radio" name="q12" value="从未付费">从未付费</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">五、个人看法</h2>
+
+        <div class="question" data-required>
+          <div class="q-title">13. 您认为大学生每天进行多长时间的游戏比较合适？ <span class="required">*</span></div>
+          <label class="option"><input type="radio" name="q13" value="30分钟以内">30分钟以内</label>
+          <label class="option"><input type="radio" name="q13" value="30分钟～1小时">30分钟～1小时</label>
+          <label class="option"><input type="radio" name="q13" value="1～2小时">1～2小时</label>
+          <label class="option"><input type="radio" name="q13" value="2～3小时">2～3小时</label>
+          <label class="option"><input type="radio" name="q13" value="3小时以上">3小时以上</label>
+          <label class="option"><input type="radio" name="q13" value="视个人情况而定">视个人情况而定</label>
+        </div>
+
+        <div class="question">
+          <div class="q-title">14. 您认为电子游戏对大学生最大的积极作用是什么？</div>
+          <textarea name="q14" placeholder="请输入您的看法……"></textarea>
+        </div>
+
+        <div class="question">
+          <div class="q-title">15. 您认为电子游戏可能给大学生带来的主要问题是什么？</div>
+          <textarea name="q15" placeholder="请输入您的看法……"></textarea>
+        </div>
+
+        <div class="question" data-required>
+          <div class="q-title">16. 您是否赞同“大学生应该合理安排游戏与学习时间”？ <span class="required">*</span></div>
+          <label class="option"><input type="radio" name="q16" value="非常赞同">非常赞同</label>
+          <label class="option"><input type="radio" name="q16" value="比较赞同">比较赞同</label>
+          <label class="option"><input type="radio" name="q16" value="一般">一般</label>
+          <label class="option"><input type="radio" name="q16" value="不太赞同">不太赞同</label>
+          <label class="option"><input type="radio" name="q16" value="非常不赞同">非常不赞同</label>
+        </div>
+
+        <div class="question">
+          <div class="q-title">17. 还有其他想分享的看法吗？</div>
+          <textarea name="q17" placeholder="可选填写……"></textarea>
+        </div>
+
+        <div id="error" class="error"></div>
+        <div class="buttons">
+          <button type="button" class="secondary" id="resetBtn">重新填写</button>
+          <button type="submit" class="primary">提交问卷</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div id="successPage" class="card success hidden">
+    <h2>提交成功！</h2>
+    <p>感谢你参与本次调查。</p>
+    <button class="primary" onclick="location.reload()">再次填写</button>
+  </div>
+</div>
+
+<script>
+const form=document.getElementById('survey');
+const bar=document.getElementById('bar');
+const progressText=document.getElementById('progressText');
+const error=document.getElementById('error');
+
+function updateProgress(){
+  const required=[...document.querySelectorAll('[data-required]')];
+  let done=0;
+  required.forEach(q=>{
+    const inputs=[...q.querySelectorAll('input')];
+    if(inputs.some(i=>i.type==='radio' && i.checked) ||
+       inputs.some(i=>i.type==='checkbox' && i.checked)) done++;
+  });
+  const pct=Math.round(done/required.length*100);
+  bar.style.width=pct+'%';
+  progressText.textContent=`已完成 ${pct}%`;
+}
+form.addEventListener('input',updateProgress);
+
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  error.textContent='';
+  const required=[...document.querySelectorAll('[data-required]')];
+  const missing=required.find(q=>{
+    const inputs=[...q.querySelectorAll('input')];
+    return !inputs.some(i=>i.checked);
+  });
+  if(missing){
+    error.textContent='请先完成所有带 * 的必答题。';
+    missing.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  document.getElementById('formPage').classList.add('hidden');
+  document.getElementById('successPage').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+document.getElementById('resetBtn').addEventListener('click',()=>{
+  if(confirm('确定要清空当前填写内容吗？')){
+    form.reset(); updateProgress(); error.textContent='';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+});
+updateProgress();
+</script>
+</body>
+</html>
