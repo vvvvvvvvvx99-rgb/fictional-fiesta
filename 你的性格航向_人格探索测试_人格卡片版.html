@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>你的性格航向｜人格探索测试</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:#27304a;background:linear-gradient(135deg,#eef3ff,#faf4ff,#fff8ef);min-height:100vh}.wrap{max-width:850px;margin:auto;padding:30px 18px 60px}.hero,.card{background:rgba(255,255,255,.9);border-radius:24px;box-shadow:0 14px 40px rgba(70,75,120,.1)}.hero{padding:34px;margin-bottom:20px}.tag{display:inline-block;padding:7px 12px;border-radius:99px;background:#eef0ff;color:#5966b8;font-size:13px;font-weight:700}h1{font-size:36px;margin:14px 0 8px}.sub{color:#69718a;line-height:1.8}.progress-row{display:flex;justify-content:space-between;color:#7c8396;font-size:13px;margin:22px 0 8px}.bar{height:8px;background:#e7eaf3;border-radius:99px;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,#7283ed,#a87ddd);transition:.25s}.card{padding:27px;margin-bottom:18px}.qnum{font-size:13px;color:#7b83a0;font-weight:700}.question{font-size:21px;font-weight:800;line-height:1.55;margin:8px 0 18px}.option{display:block;margin:10px 0;cursor:pointer}.option input{position:absolute;opacity:0}.option span{display:block;padding:15px 17px;border:1.5px solid #e1e5ef;border-radius:15px;background:#fbfcff;transition:.18s;line-height:1.5}.option:hover span{border-color:#aeb8ee}.option input:checked+span{border-color:#7283ed;background:#f0f2ff;box-shadow:0 0 0 3px rgba(114,131,237,.1)}.nav{display:flex;justify-content:space-between;margin-top:18px;gap:12px}button{border:0;border-radius:14px;padding:13px 20px;font-weight:800;cursor:pointer}.primary{background:#6071df;color:#fff}.secondary{background:#eef0f6;color:#596176}.result{text-align:center;display:none;padding:38px 28px}.emoji{font-size:58px}.result h2{font-size:32px;margin:8px 0}.lead{color:#68718b;line-height:1.8}.pill{display:inline-block;margin:4px;padding:8px 12px;background:#f0f2ff;border-radius:99px;color:#5c68b6;font-size:13px;font-weight:700}.section{text-align:left;border-top:1px solid #eceef5;margin-top:24px;padding-top:20px}.section h3{margin:0 0 10px}.section p{color:#606980;line-height:1.8}.scores{display:grid;grid-template-columns:1fr 1fr;gap:10px}.score{background:#f7f8fc;border-radius:13px;padding:12px}.mini{height:7px;background:#e3e6ef;border-radius:99px;overflow:hidden;margin:7px 0}.mini i{display:block;height:100%;background:#8390e8}.note{font-size:12px;color:#9097a9}.restart{margin-top:20px}
+.share-card-wrap{margin:24px auto 0;max-width:620px}
+.personality-card{
+  position:relative;overflow:hidden;text-align:left;border-radius:26px;padding:30px;
+  background:linear-gradient(145deg,#6678e8 0%,#8f70d8 52%,#d08cc7 100%);
+  color:white;box-shadow:0 18px 45px rgba(80,78,160,.28);min-height:330px;
+}
+.personality-card:before,.personality-card:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.11)}
+.personality-card:before{width:210px;height:210px;right:-65px;top:-70px}
+.personality-card:after{width:150px;height:150px;left:-75px;bottom:-80px}
+.card-top{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center}
+.card-brand{font-size:12px;letter-spacing:2px;font-weight:800;opacity:.86}
+.card-type{font-size:13px;padding:7px 10px;border:1px solid rgba(255,255,255,.35);border-radius:99px;background:rgba(255,255,255,.1)}
+.card-main{position:relative;z-index:1;display:flex;gap:20px;align-items:center;margin-top:28px}
+.card-emoji{font-size:68px;line-height:1}
+.card-title{font-size:31px;font-weight:900;margin:0 0 6px}
+.card-subtitle{font-size:13px;opacity:.85}
+.card-desc{position:relative;z-index:1;margin:25px 0 18px;line-height:1.7;font-size:14px;opacity:.95}
+.card-tags{position:relative;z-index:1;display:flex;gap:8px;flex-wrap:wrap}
+.card-tags span{padding:7px 11px;border-radius:99px;background:rgba(255,255,255,.16);font-size:12px}
+.card-footer{position:relative;z-index:1;margin-top:22px;font-size:11px;opacity:.72;display:flex;justify-content:space-between}
+.card-actions{display:flex;justify-content:center;gap:10px;margin-top:14px}
+.card-actions button{font-size:13px;padding:11px 15px}
+@media(max-width:600px){.personality-card{padding:24px;min-height:350px}.card-title{font-size:27px}.card-emoji{font-size:58px}}
+
+@media(max-width:600px){h1{font-size:30px}.hero,.card{padding:24px 18px}.question{font-size:19px}.scores{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<span class="tag">PERSONALITY EXPLORER · 趣味测试</span>
+<h1>你的性格航向是什么？</h1>
+<p class="sub">这不是给你贴标签，而是一场关于“你通常怎样思考、行动和与世界相处”的小探索。凭第一感觉选择最像你的选项，约 3–5 分钟完成。</p>
+<div class="progress-row"><span id="pt">第 1 / 16 题</span><span id="pc">0%</span></div>
+<div class="bar"><div class="fill" id="fill"></div></div>
+</section>
+<main id="quiz"></main>
+<section class="card result" id="result">
+<div class="emoji" id="emoji"></div><h2 id="title"></h2><p class="lead" id="lead"></p><div id="traits"></div>
+<div class="section"><h3>你的四个维度</h3><div class="scores" id="scores"></div></div>
+<div class="section"><h3>你可能的优势</h3><p id="strengths"></p></div>
+<div class="section"><h3>给你的一个小建议</h3><p id="advice"></p></div>
+
+<div class="share-card-wrap">
+  <div class="personality-card" id="personalityCard">
+    <div class="card-top">
+      <div class="card-brand">PERSONALITY EXPLORER</div>
+      <div class="card-type" id="cardType">TYPE</div>
+    </div>
+    <div class="card-main">
+      <div class="card-emoji" id="cardEmoji">✨</div>
+      <div>
+        <div class="card-title" id="cardTitle">人格类型</div>
+        <div class="card-subtitle">我的性格航向 · 趣味探索结果</div>
+      </div>
+    </div>
+    <div class="card-desc" id="cardDesc">你的结果描述会显示在这里。</div>
+    <div class="card-tags" id="cardTags"></div>
+    <div class="card-footer"><span>仅供娱乐与自我探索</span><span>PERSONALITY EXPLORER</span></div>
+  </div>
+  <div class="card-actions">
+    <button class="secondary" onclick="downloadCard()">保存人格卡片</button>
+  </div>
+</div>
+
+<p class="note">这是娱乐与自我探索用途的原创测试，不是心理诊断，也不能定义一个人的全部。</p>
+<button class="primary restart" onclick="restart()">再测一次</button>
+</section>
+</div>
+<script>
+const qs=[
+["周末突然多出半天自由时间，你更可能……",["约几个人出去走走，临时找点新鲜事","E"],["安静待着，做自己一直想做的事","I"]],
+["进入陌生的社团或活动，你通常会……",["主动和周围的人聊两句，很快进入状态","E"],["先观察环境，熟悉后再慢慢加入","I"]],
+["朋友聚会结束后，你通常是……",["觉得能量被补充了，还想继续聊","E"],["觉得很开心，但需要一点独处时间恢复","I"]],
+["遇到一个新问题，你第一反应更接近……",["先想它背后的规律、可能性和未来变化","N"],["先看眼前的事实、细节和已有经验","S"]],
+["别人介绍一个新想法时，你更容易被……",["“换个方式会不会更有意思？”吸引","N"],["“具体怎么做、有没有实际效果？”吸引","S"]],
+["学习新东西时，你更喜欢……",["先理解整体框架，再自己延伸","N"],["先看具体例子，再一步步掌握","S"]],
+["做重要决定时，你更看重……",["逻辑、标准和长期效果","T"],["人的感受、关系和价值取向","F"]],
+["朋友找你讨论烦恼，你更自然的反应是……",["帮他拆解问题，想办法找到解决方案","T"],["先陪他把感受说出来，让他觉得被理解","F"]],
+["团队意见不一致时，你更倾向于……",["把不同观点放在一起，找最合理的方案","T"],["关注大家能不能接受，尽量减少关系上的摩擦","F"]],
+["面对大任务，你更喜欢……",["先定计划和节点，按步骤推进","J"],["先保留空间，根据进展随时调整","P"]],
+["旅行时，你更喜欢……",["大致安排好路线和住宿，心里比较踏实","J"],["留出很多空白，看到什么想去就去","P"]],
+["截止日期还有几天，你通常……",["提前完成会比较安心","J"],["灵感和效率常在最后阶段突然上线","P"]],
+["老师或朋友临时改变原计划，你会……",["有点不舒服，更希望按原定安排走","J"],["觉得没关系，换个方案就好","P"]],
+["你更容易被哪种故事吸引？",["开放想象、隐喻很多、让人脑补后续的","N"],["细节真实、人物具体、代入感强的","S"]],
+["你更喜欢哪种合作方式？",["各自负责清晰部分，最后整合结果","J"],["边讨论边碰撞，方向随着想法变化","P"]],
+["如果有一项比赛，你更在意……",["把自己的水平发挥出来，结果有客观标准","T"],["过程中的体验，以及和别人一起完成的感觉","F"]]
+];
+const results={
+"ENTP":["🧭","灵感探险家","你很容易对“如果这样会怎样？”产生兴趣。你喜欢碰撞观点、尝试新路线，也不太害怕推翻旧想法。",["好奇心强","点子多","喜欢探索"],"善于发现可能性、提出新角度，也比较容易在变化的环境中找到机会。","别急着把所有新点子都变成任务。挑一两个真正重要的方向深入，会让创造力更有力量。"],
+"ENFP":["✨","热情点火者","你容易被有趣的人、故事和可能性点亮。兴趣和意义常常比按部就班更能驱动你。",["热情","共情力","想象力"],"很会给团队带来活力，也擅长发现别人身上的闪光点。","兴趣是很强的发动机，但稳定推进同样重要。给喜欢的事情留一点固定时间，它会走得更远。"],
+"ESTP":["⚡","行动玩家","你倾向于边做边判断，不喜欢在还没开始时就想太久。真实体验往往比纸上推演更能让你找到答案。",["行动派","适应快","敢尝试"],"反应灵活、临场处理能力不错，遇到变化时往往能迅速调整。","速度很重要，但偶尔停下来想想长期目标，会让行动更有方向。"],
+"ESFP":["🎈","体验捕手","你很重视当下的体验和人与人之间的连接，常能注意到现场氛围。",["亲和","感受力","乐于体验"],"容易让周围的人放松，也善于把计划变成真实、有温度的体验。","享受当下没有错，也可以给未来留一点空间：提前安排一点点，就能减少临时的手忙脚乱。"],
+"INTJ":["🔭","蓝图设计师","你喜欢把零散信息拼成一张更大的地图，再决定下一步怎么走。",["独立","规划","洞察"],"擅长建立系统、看长期趋势，并持续优化自己的方法。","好计划不一定需要完美。早点拿出可执行版本，再边做边修，通常更有效。"],
+"INFJ":["🌙","深度观察者","你习惯从表面现象往下看，关注事情背后的意义，也比较在意人与人之间微妙的感受。",["洞察","理想感","细腻"],"能够把复杂想法整理成有意义的方向，也很重视长期价值。","理解别人很重要，也别忘了给自己的需求留位置。清楚表达边界并不等于冷漠。"],
+"ISTJ":["🧱","可靠筑造者","你更相信稳定、清晰和一步一步完成的成果。",["可靠","细致","责任感"],"执行稳定、关注细节，适合把一个想法真正落地。","计划是为了帮助你，而不是限制你。偶尔尝试一个没那么确定的新方案，也会有惊喜。"],
+"ISFJ":["🌿","温暖守护者","你很关注身边人的需要，也喜欢用实际行动表达在乎。",["体贴","耐心","务实"],"善于照顾细节、维持合作氛围，也容易成为别人信赖的人。","不要因为想让大家都舒服，就把自己的需求一直往后放。适度说“不”也是一种自我照顾。"],
+"INTP":["🧩","思维解谜者","你对“为什么”特别敏感，喜欢拆解规则、寻找逻辑漏洞，再搭出自己的解释。",["分析","好奇","独立思考"],"擅长研究复杂问题，也容易从不同角度发现别人忽略的细节。","想清楚很重要，但别让“还可以再优化”阻止你把想法拿出来试。"],
+"ISFP":["🎨","自由创作者","你重视真实感受和个人价值，也喜欢用自己的方式体验世界。",["审美","真实","灵活"],"对氛围和细节敏感，能够用独特方式表达自己的想法。","保留自己的节奏很好；给重要目标设一个小截止点，会让自由更可持续。"],
+"ISTP":["🛠️","冷静解题者","你喜欢直接接触问题本身：哪里出了问题？能不能试一个办法？结果怎么样？",["冷静","实践","灵活"],"面对具体问题时很务实，喜欢用实际结果验证想法。","有些事情没有标准答案，和别人分享你的思路，可能会得到意外帮助。"],
+"ENTJ":["🚀","目标领航者","你喜欢明确目标、分配资源、推动事情向前。",["目标感","组织力","决断"],"擅长把复杂任务拆开并推动执行，也容易在团队中承担推进角色。","效率之外也要留意人的节奏。让团队成员有参与感，长期合作通常会更顺。"],
+"ENFJ":["🌟","共鸣引导者","你很关注人的潜力和团队方向，喜欢让不同的人找到共同目标。",["感染力","共情","组织"],"善于协调、鼓励别人，也能把模糊目标变成大家愿意参与的事情。","帮助别人之前先确认自己还有余力。长期支持需要稳定的自己作为基础。"],
+"ESTJ":["📋","秩序推动者","你喜欢清晰规则、明确目标和可衡量的结果。面对混乱时，你通常会自然地开始整理。",["执行","秩序","责任"],"擅长把任务结构化、推进流程，并让团队知道下一步是什么。","规则能提高效率，但不是所有情况都适合一套规则。给变化留一点弹性，会更轻松。"],
+"ESFJ":["🤝","连接营造者","你很在意人与人之间的互动，也愿意主动维护关系和团队氛围。",["合作","体贴","组织"],"善于沟通和协调，能够让集体活动更有参与感。","别把照顾好所有人当成自己的责任。关系是共同维护的，不需要一个人扛。"]
+};
+let cur=0,ans={};
+function render(){
+if(cur>=qs.length)return result();
+let x=qs[cur];document.getElementById("quiz").innerHTML='<section class="card"><div class="qnum">QUESTION '+String(cur+1).padStart(2,"0")+'</div><div class="question">'+x[0]+'</div>'+x.slice(1).map((o,i)=>'<label class="option"><input type="radio" name="q" value="'+o[1]+'" '+(ans[cur]===o[1]?'checked':'')+'><span>'+o[0]+'</span></label>').join('')+'<div class="nav"><button class="secondary" onclick="prev()" '+(cur===0?'disabled':'')+'>上一题</button><button class="primary" onclick="next()">'+(cur===qs.length-1?'查看结果':'下一题')+'</button></div></section>';
+document.getElementById("pt").textContent="第 "+(cur+1)+" / "+qs.length+" 题";document.getElementById("pc").textContent=Math.round(cur/qs.length*100)+"%";document.getElementById("fill").style.width=(cur/qs.length*100)+"%";
+}
+function next(){let r=document.querySelector('input[name=q]:checked');if(!r){alert("先选一个最符合你的选项吧～");return}ans[cur]=r.value;cur++;render()}
+function prev(){if(cur){cur--;render()}}
+function result(){
+document.getElementById("quiz").style.display="none";document.getElementById("result").style.display="block";document.getElementById("fill").style.width="100%";document.getElementById("pt").textContent="测试完成";document.getElementById("pc").textContent="100%";
+let c={E:0,I:0,N:0,S:0,T:0,F:0,J:0,P:0};Object.values(ans).forEach(v=>c[v]++);
+let type=(c.E>=c.I?"E":"I")+(c.N>=c.S?"N":"S")+(c.T>=c.F?"T":"F")+(c.J>=c.P?"J":"P"),r=results[type]||results.ENFP;
+document.getElementById("emoji").textContent=r[0];document.getElementById("title").textContent=r[1];document.getElementById("cardEmoji").textContent=r[0];document.getElementById("cardTitle").textContent=r[1];document.getElementById("cardType").textContent=type;document.getElementById("cardDesc").textContent=r[2];document.getElementById("cardTags").innerHTML=r[3].map(x=>"<span>"+x+"</span>").join("");document.getElementById("lead").textContent=r[2];document.getElementById("traits").innerHTML=r[3].map(x=>'<span class="pill">'+x+'</span>').join("");document.getElementById("strengths").textContent=r[4];document.getElementById("advice").textContent=r[5];
+let ds=[["外向 E","内向 I","E","I"],["直觉 N","现实 S","N","S"],["思考 T","情感 F","T","F"],["计划 J","探索 P","J","P"]];
+document.getElementById("scores").innerHTML=ds.map(d=>{let a=c[d[2]],b=c[d[3]],p=Math.round(a/(a+b)*100);return '<div class="score"><b>'+d[0]+' / '+d[1]+'</b><div class="mini"><i style="width:'+p+'%"></i></div><small>'+d[2]+' '+p+'% · '+d[3]+' '+(100-p)+'%</small></div>'}).join("");
+}
+
+function downloadCard(){
+  const card=document.getElementById("personalityCard");
+  const scale=2, rect=card.getBoundingClientRect();
+  const canvas=document.createElement("canvas");
+  canvas.width=Math.round(rect.width*scale); canvas.height=Math.round(rect.height*scale);
+  const ctx=canvas.getContext("2d"); ctx.scale(scale,scale);
+
+  const w=rect.width,h=rect.height;
+  const g=ctx.createLinearGradient(0,0,w,h);
+  g.addColorStop(0,"#6678e8"); g.addColorStop(.52,"#8f70d8"); g.addColorStop(1,"#d08cc7");
+  ctx.fillStyle=g; roundRect(ctx,0,0,w,h,26); ctx.fill();
+
+  // decorative circles
+  ctx.fillStyle="rgba(255,255,255,.11)";
+  ctx.beginPath();ctx.arc(w-10,20,105,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.arc(0,h+5,75,0,Math.PI*2);ctx.fill();
+
+  ctx.fillStyle="rgba(255,255,255,.86)";
+  ctx.font="800 12px Arial";ctx.letterSpacing="2px";ctx.fillText("PERSONALITY EXPLORER",30,34);
+  ctx.fillStyle="rgba(255,255,255,.82)";ctx.font="700 13px Arial";
+  ctx.fillText(document.getElementById("cardType").textContent,w-78,34);
+
+  ctx.font="58px Arial";ctx.fillText(document.getElementById("cardEmoji").textContent,30,112);
+  ctx.fillStyle="#fff";ctx.font="900 30px Arial";ctx.fillText(document.getElementById("cardTitle").textContent,112,91);
+  ctx.fillStyle="rgba(255,255,255,.82)";ctx.font="13px Arial";ctx.fillText("我的性格航向 · 趣味探索结果",112,115);
+
+  ctx.fillStyle="rgba(255,255,255,.94)";ctx.font="14px Arial";
+  wrapText(ctx,document.getElementById("cardDesc").textContent,30,154,w-60,24,3);
+
+  let x=30,y=230;
+  const tags=[...document.querySelectorAll("#cardTags span")].map(e=>e.textContent);
+  ctx.font="700 12px Arial";
+  tags.forEach(t=>{
+    const tw=ctx.measureText(t).width+22;
+    if(x+tw>w-30){x=30;y+=34}
+    ctx.fillStyle="rgba(255,255,255,.16)";roundRect(ctx,x,y,tw,27,13);ctx.fill();
+    ctx.fillStyle="#fff";ctx.fillText(t,x+11,y+18);x+=tw+8;
+  });
+  ctx.fillStyle="rgba(255,255,255,.68)";ctx.font="11px Arial";
+  ctx.fillText("仅供娱乐与自我探索",30,h-24);
+  ctx.fillText("PERSONALITY EXPLORER",w-132,h-24);
+
+  const a=document.createElement("a");a.download="我的人格卡片.png";a.href=canvas.toDataURL("image/png");a.click();
+}
+function roundRect(ctx,x,y,w,h,r){
+  const rr=Math.min(r,w/2,h/2);ctx.beginPath();ctx.moveTo(x+rr,y);
+  ctx.arcTo(x+w,y,x+w,y+h,rr);ctx.arcTo(x+w,y+h,x,y+h,rr);
+  ctx.arcTo(x,y+h,x,y,rr);ctx.arcTo(x,y,x+w,y,rr);ctx.closePath();
+}
+function wrapText(ctx,text,x,y,maxWidth,lineHeight,maxLines){
+  let line="",lines=[];
+  for(const ch of text){
+    const test=line+ch;
+    if(ctx.measureText(test).width>maxWidth && line){lines.push(line);line=ch;if(lines.length===maxLines)break}else line=test;
+  }
+  if(lines.length<maxLines && line)lines.push(line);
+  if(lines.length===maxLines && text.length>lines.join("").length) lines[lines.length-1]+="…";
+  lines.forEach((l,i)=>ctx.fillText(l,x,y+i*lineHeight));
+}
+
+function restart(){cur=0;ans={};document.getElementById("result").style.display="none";document.getElementById("quiz").style.display="block";render()}
+render();
+</script>
+</body>
+</html>
